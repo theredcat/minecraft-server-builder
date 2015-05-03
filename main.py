@@ -67,11 +67,7 @@ with open(minecraft, 'wb') as out_file:
 	out_file.seek(0) # %#/!?]_%^# !!!! => https://hg.python.org/cpython/rev/5102336ca343/ https://mail.python.org/pipermail/python-bugs-list/2007-February/037299.html
 	log("Unzipping Minecraft Server.")
 	minecraftZip = zf.ZipFile(minecraft, "a")
-	log("MC List")
-	print len(minecraftZip.namelist())
+
+	# STEP 5 : Inject forge into minecraft
 	for f in forgeZip.namelist():
 		zipCopy(forgeZip, minecraftZip, f)
-
-	# STEP 5 : Inject forge into Minecraft server
-	#z.write(sys.argv[2], sys.argv[3])
-	#z.close()
